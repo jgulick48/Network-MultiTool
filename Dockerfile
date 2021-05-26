@@ -8,8 +8,8 @@ EXPOSE 80 443 1180 11443
 # Packages are listed in alphabetical order, for ease of readability and ease of maintenance.
 RUN     apk update \
     &&  apk add bind-tools busybox-extras curl \
-                iproute2 iputils jq mtr \
-                net-tools nginx openssl \
+                iproute2 iputils jq mtr net-snmp-tools \
+                net-tools nginx openssl tcptraceroute \
                 perl-net-telnet procps tcpdump wget \
     &&  mkdir /certs \
     &&  chmod 700 /certs \
@@ -57,27 +57,27 @@ ENTRYPOINT ["/bin/sh", "/docker-entrypoint.sh"]
 # Build and Push (to dockerhub) instructions:
 # -------------------------------------------
 # docker build -t local/network-multitool .
-# docker tag local/network-multitool praqma/network-multitool
+# docker tag local/network-multitool jgulick48/network-multitool
 # docker login
-# docker push praqma/network-multitool
+# docker push jgulick48/network-multitool
 
 
 # Pull (from dockerhub):
 # ----------------------
-# docker pull praqma/network-multitool
+# docker pull jgulick48/network-multitool
 
 
 # Usage - on Docker:
 # ------------------
-# docker run --rm -it praqma/network-multitool /bin/bash 
+# docker run --rm -it jgulick48/network-multitool /bin/bash
 # OR
-# docker run -d  praqma/network-multitool
+# docker run -d  jgulick48/network-multitool
 # OR
-# docker run -p 80:80 -p 443:443 -d  praqma/network-multitool
+# docker run -p 80:80 -p 443:443 -d  jgulick48/network-multitool
 # OR
-# docker run -e HTTP_PORT=1180 -e HTTPS_PORT=11443 -p 1180:1180 -p 11443:11443 -d  praqma/network-multitool
+# docker run -e HTTP_PORT=1180 -e HTTPS_PORT=11443 -p 1180:1180 -p 11443:11443 -d  jgulick48/network-multitool
 
 
 # Usage - on Kubernetes:
 # ---------------------
-# kubectl run multitool --image=praqma/network-multitool
+# kubectl run multitool --image=jgulick48/network-multitool
