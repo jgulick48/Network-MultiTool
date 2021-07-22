@@ -10,7 +10,7 @@ The container image contains lots of tools, as well as a `nginx` web server, whi
 * linux/arm64
 
 ## Downloadable from Docker Hub: 
-* [https://hub.docker.com/r/praqma/network-multitool/](https://hub.docker.com/r/praqma/network-multitool/)  (Automated multi-arch Build)
+* [https://hub.docker.com/r/jgulick48/network-multitool/](https://hub.docker.com/r/jgulick48/network-multitool/)  (Automated multi-arch Build)
 
 ## Variants / image tags:
 * **latest**, minimal, alpine-minimal ( The main/default **'minimal'** image - Alpine based )
@@ -87,19 +87,19 @@ The container image contains lots of tools, as well as a `nginx` web server, whi
 
 ### Docker:
 ```
-$ docker run  -d praqma/network-multitool
+$ docker run  -d jgulick48/network-multitool
 ```
 
 ### Kubernetes:
 
 Create single pod - without a deployment:
 ```
-$ kubectl run multitool --image=praqma/network-multitool
+$ kubectl run multitool --image=jgulick48/network-multitool
 ```
 
 Create a deployment:
 ```
-$ kubectl create deployment multitool --image=praqma/network-multitool
+$ kubectl create deployment multitool --image=jgulick48/network-multitool
 ```
 
 **Note:** You can pass additional parameter `--namespace=<your-desired-namespace>` to the above kubectl commands.
@@ -111,13 +111,13 @@ Sometimes you want to do testing using the **host network**.  This can be achiev
 
 ### Docker:
 ```
-$ docker run --network host -d praqma/network-multitool
+$ docker run --network host -d jgulick48/network-multitool
 ```
 
 **Note:** If port 80 and/or 443 are already busy on the host, then use pass the extra arguments to multitool, so it can listen on a different port, as shown below:
 
 ```
-$ docker run --network host -e HTTP_PORT=1180 -e HTTPS_PORT=11443 -d praqma/network-multitool
+$ docker run --network host -e HTTP_PORT=1180 -e HTTPS_PORT=11443 -d jgulick48/network-multitool
 ```
 
 ### kubernetes:
@@ -161,12 +161,12 @@ Well, normally, if a container does not run a daemon/service, then running it (t
 
 This helps you when you are using Docker. You simply execute:
 ```
-$ docker run  -d praqma/network-multitool
+$ docker run  -d jgulick48/network-multitool
 ```
 
 This also helps when you are using kubernetes. You simply execute:
 ```
-$ kubectl run multitool --image=praqma/network-multitool
+$ kubectl run multitool --image=jgulick48/network-multitool
 ```
 
 
